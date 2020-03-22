@@ -40,7 +40,7 @@ namespace Sample_code_04
                 Console.WriteLine("Using minium");
                 height = MIN_HEIGHT;
             }
-            if(height > MAX_HEIGHT)
+            if (height > MAX_HEIGHT)
             {
                 Console.WriteLine("Height is too large.\n\n");
                 Console.WriteLine("Using mixium");
@@ -48,9 +48,9 @@ namespace Sample_code_04
             }
             woodLength = 2 * (width + height) * 3.25;
             glassArea = 2 * (width * height);
-            Console.WriteLine("The length of wood is" + woodLength + " square metres");
+            Console.WriteLine("The length of wood is " + woodLength + " square metres");
+            Console.ReadKey();
 
         }
-
     }
 }
