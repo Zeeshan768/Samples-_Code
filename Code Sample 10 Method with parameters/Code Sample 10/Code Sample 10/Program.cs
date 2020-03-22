@@ -4,18 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Code_Sample_09_Simple_Method
+namespace Code_Sample_10
 {
-    class MethDemo
+    class MethodDDemo
     {
-        static void doit()
+        static void silly(int i)
         {
-            Console.WriteLine("Hello");
+            Console.WriteLine(" i is :" + i);
         }
         static void Main(string[] args)
         {
-            doit();
-            doit();
+            silly(101);
+            silly(101);
             Console.ReadKey();
         }
     }
