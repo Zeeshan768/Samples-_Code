@@ -11,7 +11,7 @@ namespace Code_Sample_01_GlazerCalc_Progr
         static void Main(string[] args)
         {
             Double width, height, woodLength, glassArea;
-            string widthString, heightString;
+            String widthString, heightString;
 
             widthString = Console.ReadLine();
             width = double.Parse(widthString);
