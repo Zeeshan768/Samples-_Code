@@ -49,6 +49,7 @@ namespace Sample_code_04
             woodLength = 2 * (width + height) * 3.25;
             glassArea = 2 * (width * height);
             Console.WriteLine("The length of wood is " + woodLength + " square metres");
+            Console.WriteLine("The glass area is " + glassArea + "Square meters");
             Console.ReadKey();
 
         }
