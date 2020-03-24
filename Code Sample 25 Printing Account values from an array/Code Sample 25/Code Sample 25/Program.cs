@@ -1,5 +1,5 @@
 ﻿using System;
-namespace Code_Sample_23
+namespace Code_Sample_25
     {
     enum AccountState
         {
@@ -37,8 +37,7 @@ namespace Code_Sample_23
             Bank[1].Name = "jim";
             Bank[1].State = AccountState.Frozen;
             Bank[1].Balance = 0;
-            Console.WriteLine(Bank[0].Name+" "+Bank[1].State);
-            PrintAccount(Bank[0]);
+            PrintAccount(Bank[1]);
            Console.ReadKey();
             }
         }
