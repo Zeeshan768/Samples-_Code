@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 namespace Code_Sample_20
     {
     class Program
@@ -10,6 +9,8 @@ namespace Code_Sample_20
             writer = new StreamWriter("text.text");
             writer.WriteLine("hello world");
             writer.Close();
+
             }
+
         }
     }
