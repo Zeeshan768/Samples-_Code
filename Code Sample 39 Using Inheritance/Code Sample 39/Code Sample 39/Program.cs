@@ -1,5 +1,5 @@
 ﻿using System;
-namespace Code_Sample_38
+namespace Code_Sample_39
     {
     public interface IAccount
         {
@@ -9,8 +9,8 @@ namespace Code_Sample_38
         }
     public class CustomerAccount:IAccount
         {
-        private decimal balance = 0;
-        public bool WithdrawFunds(decimal amount)
+        protected decimal balance = 0;
+        public virtual bool WithdrawFunds(decimal amount)
             {
             if(balance < amount)
                 {
@@ -19,63 +19,54 @@ namespace Code_Sample_38
             balance = balance - amount;
             return true;
             }
+          public decimal GetBalance()
+            {
+            return balance;
+            }
         public void PayInFunds(decimal amount)
             {
             balance = balance + amount;
             }
-        public decimal GetBalance()
+      
+        }
+    public class BabyAccount:CustomerAccount,IAccount
+        {
+        public override bool WithdrawFunds(decimal amount)
             {
-            return balance;
+            if(amount > 10)
+                {
+                return false;
+                }
+            if(balance < amount)
+                {
+                return false;
+                }
+            balance = balance - amount;
+            return true;
             }
-        public class BabyAccount:IAccount
+        }
+   
+            class Bank
+        {
+        const int MAX_CUST = 100;
+        public static void Main()
             {
-            private decimal balance = 0;
-            public bool WithdrawFunds(decimal amount)
-                {
-                if(amount > 10)
-                    {
-                    return false;
-                    }
-                if(balance < amount)
-                    {
-                    return false;
-                    }
-                balance = balance - amount;
-                return true;
-                }
-            public void PayInFunds(decimal amount)
-                {
-                balance = balance + amount;
-                }
-            public decimal GetBalance()
-                {
-                return balance;
-                }
-            }
+            IAccount[] accounts = new IAccount[MAX_CUST];
+            accounts[0] = new CustomerAccount();
+            accounts[0].PayInFunds(50);
+            Console.WriteLine("Balance: " + accounts[0].GetBalance());
 
-
-        class Bank
-            {
-            const int MAX_CUST = 100;
-            public static void Main()
+            accounts[1] = new BabyAccount();
+            accounts[1].PayInFunds(20);
+            Console.WriteLine("Balance: " + accounts[1].GetBalance());
+            if(accounts[0].WithdrawFunds(20))
                 {
-                IAccount[] accounts = new IAccount[MAX_CUST];
-                accounts[0] = new CustomerAccount();
-                accounts[0].PayInFunds(50);
-                Console.WriteLine("Balance: " + accounts[0].GetBalance());
-
-                accounts[1] = new BabyAccount();
-                accounts[1].PayInFunds(20);
-                Console.WriteLine("Balance: " + accounts[1].GetBalance());
-                if(accounts[0].WithdrawFunds(20))
-                    {
-                    Console.WriteLine("Withdraw OK");
-                    }
-                if(accounts[1].WithdrawFunds(20))
-                    {
-                    Console.WriteLine("Withdraw OK");
-                    }
+                Console.WriteLine("Withdraw OK");
+                }
+            if(accounts[1].WithdrawFunds(20))
+                {
+                Console.WriteLine("Withdraw OK");
                 }
             }
         }
-    }
+    }
