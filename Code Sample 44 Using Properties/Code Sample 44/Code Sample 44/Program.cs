@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace Code_Sample_44
     {
     public class StaffMember
@@ -13,7 +8,7 @@ namespace Code_Sample_44
             {
             set
                 {
-                if((value>0)&&(value < 120))
+                if((value > 0) && (value < 120))
                     {
                     this.ageValue = value;
                     }
@@ -24,7 +19,7 @@ namespace Code_Sample_44
                 }
             }
         }
-   public  class StaffDemo
+    public class StaffDemo
         {
         static void Main()
             {
